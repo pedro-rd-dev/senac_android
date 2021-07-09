@@ -28,7 +28,7 @@ public class Android {
         context.startActivity(intent);
     }
 
-    public void getLocation() {
+    public Location getLocation() {
         LocationManager locationManager = (LocationManager) context.getSystemService(LOCATION_SERVICE);
         if (context.checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && context.checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -47,6 +47,7 @@ public class Android {
 
         }
 
+        return this.location;
     }
 
     private void isReadGpsAllowed() {
@@ -60,6 +61,11 @@ public class Android {
             getLocation();
         }
 
+    }
+
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
 
