@@ -1,12 +1,14 @@
-package com.senac_android;
+package com.senac_android.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.senac_android.utilitarios.Android;
+import com.senac_android.R;
 
 public class MainActivity extends AppCompatActivity {
 
