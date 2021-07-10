@@ -64,9 +64,5 @@ public class Android {
     }
 
 
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
 
 }

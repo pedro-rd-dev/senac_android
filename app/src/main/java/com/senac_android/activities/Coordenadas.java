@@ -11,6 +11,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.LocaleList;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -31,8 +32,14 @@ public class Coordenadas extends AppCompatActivity {
 
         Location location = android.getLocation();
 
+        double latitude = location.getLatitude();
+        double longitude = location.getLongitude();
 
+        TextView lat = findViewById(R.id.coordenadas_tela_textview_latitude);
+        TextView longi = findViewById(R.id.coordenadas_tela_textview_longitude);
 
+        lat.setText(String.valueOf(latitude));
+        longi.setText(String.valueOf(longitude));
         Log.d("teste","teste");
 
 
