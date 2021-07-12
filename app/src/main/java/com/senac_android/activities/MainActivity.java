@@ -3,6 +3,7 @@ package com.senac_android.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,6 +12,11 @@ import com.senac_android.utilitarios.Android;
 import com.senac_android.R;
 
 public class MainActivity extends AppCompatActivity {
+
+    public void mostrarToast(View v){
+
+        Toast.makeText(this,"teste",Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +33,44 @@ public class MainActivity extends AppCompatActivity {
                 android.trocarDeActivity(RegisterActivity.class);
             }
         });
+
+
+        Log.d("CicloDeVida", "onCreate");
     }
 
-    public void mostrarToast(View v){
-
-        Toast.makeText(this,"teste",Toast.LENGTH_SHORT).show();
+    @Override
+    protected void onStart(){
+        Log.d("CicloDeVida","onStart - a activity começou a executar");
+        super.onStart();
     }
+
+    @Override
+    protected void onResume(){
+        Log.d("CicloDeVida","onResume - Estado de interação com a tela");
+
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause(){
+        Log.d("CicloDeVida","onPause - A Activity começou a encerrar");
+
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop(){
+        Log.d("CicloDeVida","onStop - A Activity Não está mais visivel");
+
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy(){
+        Log.d("CicloDeVida","onDestroy - A Activity foi destruida");
+
+
+        super.onDestroy();
+    }
+
 }
