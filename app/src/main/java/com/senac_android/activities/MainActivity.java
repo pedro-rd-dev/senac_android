@@ -8,8 +8,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.senac_android.models.Usuario;
 import com.senac_android.utilitarios.Android;
 import com.senac_android.R;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,7 +38,20 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+
+        Usuario usuario = new Usuario();
+        usuario.setUserName("PEDRO");
+        usuario.setPassword("123456");
+        usuario.save();
+
+
+        List<Usuario> usuarios = Usuario.listAll(Usuario.class);
+
+
+
         Log.d("CicloDeVida", "onCreate");
+
     }
 
     @Override
