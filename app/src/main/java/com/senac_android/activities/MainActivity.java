@@ -8,11 +8,16 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.senac_android.api.retrofit.RetrofitConfig;
 import com.senac_android.models.Usuario;
 import com.senac_android.utilitarios.Android;
 import com.senac_android.R;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,19 +43,21 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        Call<List<Usuario>> call = new RetrofitConfig().setUserService().listarUsuarios();
+        call.enqueue(new Callback<List<Usuario>>() {
+            @Override
+            public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
 
+                List<Usuario> usuariosList = response.body();
+                Log.d("teste","teste");
+            }
 
-        Usuario usuario = new Usuario();
-        usuario.setUserName("PEDRO");
-        usuario.setPassword("123456");
-        usuario.save();
+            @Override
+            public void onFailure(Call<List<Usuario>> call, Throwable t) {
+                Log.d("teste","teste");
 
-
-        List<Usuario> usuarios = Usuario.listAll(Usuario.class);
-
-
-
-        Log.d("CicloDeVida", "onCreate");
+            }
+        });
 
     }
 
