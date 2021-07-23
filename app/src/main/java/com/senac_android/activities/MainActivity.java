@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
         Call<List<Usuario>> call = new RetrofitConfig().setUserService().listarUsuarios();
         call.enqueue(new Callback<List<Usuario>>() {
             @Override

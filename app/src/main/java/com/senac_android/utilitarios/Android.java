@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 
@@ -69,6 +71,26 @@ public class Android {
             getLocation();
         }
 
+    }
+
+    public void mensagemCurta(String mensagem){
+
+        Toast.makeText(context,mensagem,Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void mensagemLonga(String mensagem){
+
+        Toast.makeText(context,mensagem,Toast.LENGTH_LONG).show();
+
+    }
+
+    public void esconderComponente(View view){
+        view.setVisibility(View.GONE);
+    }
+
+    public void mostrarComponente(View view){
+        view.setVisibility(View.VISIBLE);
     }
 
 
