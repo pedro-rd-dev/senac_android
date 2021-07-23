@@ -17,6 +17,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.registro);
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 
+
         TextView regitro_text_login = findViewById(R.id.regitro_text_login);
 
         regitro_text_login.setOnClickListener(new View.OnClickListener() {

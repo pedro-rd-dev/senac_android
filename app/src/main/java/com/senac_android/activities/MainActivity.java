@@ -2,6 +2,7 @@ package com.senac_android.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -31,6 +32,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+
+        Android android = new Android(MainActivity.this);
+        android.getCurrentLocation();
+
+
 
         TextView loginTextRegistrar = findViewById(R.id.login_text_registrar);
 

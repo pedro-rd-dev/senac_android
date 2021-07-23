@@ -16,10 +16,12 @@ public class Android {
 
     private Context context;
     private Location location;
+    private Activity activity;
     final private int REQUEST_CODE_ASK_PERMISSIONS = 123;
 
     public Android(Context context) {
         this.context = context;
+        this.activity = (Activity) context;
     }
 
     public void trocarDeActivity(Class<?> activity){
@@ -29,6 +31,14 @@ public class Android {
     }
 
     public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public void getCurrentLocation() {
         LocationManager locationManager = (LocationManager) context.getSystemService(LOCATION_SERVICE);
         if (context.checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && context.checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -46,8 +56,6 @@ public class Android {
             this.location = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
 
         }
-
-        return this.location;
     }
 
     private void isReadGpsAllowed() {
